@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <script>
+  var collection = {
+    "2548": {
+      "album": "Slippery When Wet",
+      "artist": "Bon Jovi",
+      "tracks": [
+        "Let It Rock",
+        "You Give Love a Bad Name"
+      ]
+    },
+    "2468": {
+      "album": "1999",
+      "artist": "Prince",
+      "tracks": [
+        "1999",
+        "Little Red Corvette"
+      ]
+    },
+    "1245": {
+      "artist": "Robert Palmer",
+      "tracks": [ ]
+    },
+    "5439": {
+      "album": "ABBA Gold"
+    }
+};
+
+function updateRecords(id, prop, value) {
+
+  var isTracks = collection[id].hasOwnProperty("tracks"),
+      newArray = [];
+
+  if (prop === "album" || prop === "artist") {
+    collection[id][prop] = value;
+  } else if (prop === "tracks" && isTracks) {
+      collection[id][prop].push(value);
+  } else if (isTracks !== false) {
+       collection[id][prop] = newArray;
+       collection[id][prop].push(value);
+  }
+  return collection;
+}
+
+updateRecords(5439, "tracks", "ABBA");
+var album=JSON.parse(JSON.stringify(collection));
+console.log(album);
+  </script>
+  <body>
+
+  </body>
+</html>

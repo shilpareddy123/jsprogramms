@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+    function friendly(str) {
+  var res = [];
+  var months = {1:'January', 2:'February', 3:'March', 4:'April', 5:'May', 6:'June', 7:'July', 8:'August', 9:'September', 10:'October', 11:'November', 12:'December'};
+
+
+  var begin_date = str[0].split('-');
+  var end_date = str[1].split('-');
+
+  for (var i = 0; i < begin_date.length; i++) {
+    begin_date[i] = parseInt(begin_date[i]);
+    end_date[i] = parseInt(end_date[i]);
+  }
+
+  var spday = {1:'st', 2:'nd', 3:'rd', 4:'th', 5:'th', 6:'th', 7:'th', 8:'th', 9:'th', 0:'th',13:'th'};
+
+  if (str[0] === str[1]) {
+       res.push(months[begin_date[1]]+' '+begin_date[2]+spday[begin_date[2].toString().substr(-2)]+','+' '+begin_date[0]);
+  }
+
+  else if (((Date.parse(str[1]) - Date.parse(str[0])) / 86400000 < 30)) {
+      res.push(months[begin_date[1]]+' '+begin_date[2]+spday[begin_date[2].toString().substr(-2)]);
+      res.push(end_date[2]+spday[end_date[2].toString().substr(-2)]);
+  }
+
+  else if (((Date.parse(str[1]) - Date.parse(str[0])) / 86400000 < 365)) {
+    if (((end_date[0] - begin_date[0]) ===1) && (begin_date[1] !== end_date[1])){
+      res.push(months[begin_date[1]]+' '+begin_date[2]+spday[begin_date[2].toString().substr(-2)]);
+      res.push(months[end_date[1]]+' '+end_date[2]+spday[end_date[2].toString().substr(-2)]);
+    }
+
+    else {
+      res.push(months[begin_date[1]]+' '+begin_date[2]+spday[begin_date[2].toString().substr(-2)]+','+' '+begin_date[0]);
+      res.push(months[end_date[1]]+' '+end_date[2]+spday[end_date[2].toString().substr(-2)]);
+    }
+  }
+
+  else {
+  res.push(months[begin_date[1]]+' '+begin_date[2]+spday[begin_date[2].toString().substr(-2)]+','+' '+begin_date[0]);
+  res.push(months[end_date[1]]+' '+end_date[2]+spday[end_date[2].toString().substr(-2)]+','+' '+end_date[0]);
+  }
+
+  return res;
+}
+
+var result=friendly(['2016-07-01', '2016-07-04']);
+var result2=friendly(["2018-01-13", "2018-01-13"]);
+console.log(result);
+console.log(result2);
+
+</script>
+  </head>
+  <body>
+
+  </body>
+</html>
