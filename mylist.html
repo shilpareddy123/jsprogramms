@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+    // create myList array
+        var myList = [];
+
+        // asking userto enter noof elements he wants to enter
+        var noOfEle = parseInt(prompt("enter the no of elements"));
+      //  repeating the for loop for no of items and taking list from user
+        for (var i = 0; i < noOfEle; i++) {
+            for (var j = 1; j < noOfEle; j++) {
+                var list = [];
+                list[0] = prompt("eneter name of items");
+                list[1] = parseInt(prompt("enter the no of elements"));
+
+                myList.push(list);
+
+                if (j == 2) {
+                    break;
+                }
+
+
+            }
+        }
+
+        // displaying the list of elements
+        document.write("items in the list are" + "<br>");
+        for (var i = 0; i < myList.length; i++) {
+            document.write(myList[i][j] + " ");
+        }
+        document.write("<br>");
+
+        // returning last element from the list
+        document.write(myList.pop() + "<br>");
+
+        // returning first element from the list
+        document.write(myList.shift() + "<br>");
+
+        // adding element at front of the list
+        document.write(myList.unshift() + "<br>");
+        document.write(myList);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
