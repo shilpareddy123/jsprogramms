@@ -1,0 +1,63 @@
+/**
+*@Filename:comp.html
+*@Date:05-10-2016
+*@Purpose:Compare two objects
+*@Created By:Shilpa K N
+*/
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Math Random</title>
+    <script type="text/javascript">
+    /**
+     *@function
+     *{param} :minval -get input value from input id min
+     *{param} :maxval -get input value from input id max
+     */
+function getRandom(){
+  var min=parseInt(document.getElementById("min").value);
+  var max=parseInt(document.getElementById("max").value);
+  //print value in id val
+  //calling function with two argument minval and maxval
+  document.getElementById("val").innerHTML=getRandomWhole(min,max);
+}whole
+/**
+ *@function
+ *accept two argument min and max integer value
+ *returns a whole number
+ */
+function getRandomWhole(min, max) {
+  return Math.random() * (max - min) + min;
+}
+    </script>
+  </head>
+  <body>
+<table>
+  <tr>
+    <td>
+      Min Number
+    </td>
+    <td>
+      <input type="number" id="min" value="">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Max Number
+    </td>
+    <td>
+      <input type="number" id="max" value="">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <input type="button" name="name" value="Get Random" onclick="getRandom();">
+    </td>
+    <td id="val">
+
+    </td>
+  </tr>
+</table>
+  </body>
+</html>
